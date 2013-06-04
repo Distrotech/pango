@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Pango by Distrotech</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Pango</h1>
+          <h2>Mirror of git://git.gnome.org/pango</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/Distrotech/pango/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/Distrotech/pango/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/Distrotech/pango" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p>Pango is a library for layout and rendering of text, with an emphasis
+on internationalization. Pango can be used anywhere that text layout
+is needed; however, most of the work on Pango so far has been done using 
+the GTK+ widget toolkit as a test platform. Pango forms the core of text
+and font handling for GTK+-2.x.</p>
+
+<p>Pango is designed to be modular; the core Pango layout can be used
+with different font backends. There are three basic backends, with
+multiple options for rendering with each.</p>
+
+<ul>
+<li><p>Client side fonts using the FreeType and fontconfig libraries.
+Rendering can be with with Cairo or Xft libraries, or directly
+to an in-memory buffer with no additional libraries.</p></li>
+<li><p>Native fonts on Microsoft Windows using Uniscribe for complex
+script handling. Rendering can be done via Cairo or directly
+using the native Win32 API.</p></li>
+<li><p>Native fonts on MacOS X with the CoreText framework, rendering via
+Cairo.</p></li>
+</ul><p>The integration of Pango with Cairo (<a href="http://cairographics.org">http://cairographics.org</a>)
+provides a complete solution with high quality text handling 
+and graphics rendering.</p>
+
+<p>Dynamically loaded modules then handle text layout for particular
+combinations of script and font backend.</p>
+
+<p>As well as the low level layout rendering routines, Pango includes
+PangoLayout, a high level driver for laying out entire blocks of text,
+and routines to assist in editing internationalized text.</p>
+
+<p>For more information about Pango, see:</p>
+
+<p><a href="http://www.pango.org/">http://www.pango.org/</a></p>
+
+<h1>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h1>
+
+<p>Pango depends on the GLib library; more information about GLib can
+be found at <a href="http://www.gtk.org/">http://www.gtk.org/</a>.</p>
+
+<p>To use the Free Software stack backend, Pango depends on the following
+libraries:</p>
+
+<ul>
+<li><p>fontconfig for font discovery (<a href="http://www.fontconfig.org">http://www.fontconfig.org</a>),</p></li>
+<li><p>FreeType for font access (<a href="http://www.freetype.org">http://www.freetype.org</a>),</p></li>
+<li><p>HarfBuzz for complex text shaping (<a href="http://www.harfbuzz.org/">http://www.harfbuzz.org/</a>)</p></li>
+</ul><p>Cairo support depends on the Cairo library (<a href="http://cairographics.org">http://cairographics.org</a>).
+The Cairo backend is the preferred backend to use Pango with and is
+subject of most of the development in the future.  It has the
+advantage that the same code can be used for display and printing.</p>
+
+<p>We suggest using Pango with Cairo as described above, but you can also
+do X-specific rendering using the Xft library. The Xft backend uses
+version 2 of the Xft library to manage client side fonts. Version 2 of
+Xft is available from <a href="http://xlibs.freedesktop.org/release/">http://xlibs.freedesktop.org/release/</a>.  You'll
+need the libXft package, and possibly the libXrender and renderext
+packages as well.  You'll also need fontconfig (see below.)</p>
+
+<p>Installation of Pango on Win32 is possible, but is not documented
+here. See <a href="http://www.gimp.org/%7Etml/gimp/win32/downloads.html">http://www.gimp.org/~tml/gimp/win32/downloads.html</a></p>
+
+<h1>
+<a name="notes" class="anchor" href="#notes"><span class="octicon octicon-link"></span></a>Notes</h1>
+
+<ul>
+<li>By default, Pango tries to build itself so that no explicit
+dependency on Xft or FreeType will be introduced in apps that
+link to Pango. This is to avoid compatibility problems with
+changes in the Xft or FreeType API's or ABI's. Specifying 
+--enable-explicit-deps or --enable-static when configuring Pango 
+will defeat this and should be avoided if possible.</li>
+</ul><h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>Most of the code of Pango is licensed under the terms of the 
+GNU Lesser Public License (LGPL) - see the file COPYING for details.</p>
+
+<p>The OpenType code in pango/opentype is derived from the FreeType 
+project (<a href="http://www.freetype.org">http://www.freetype.org</a>) and is dual-licensed under the 
+GNU General Public License and the FreeType license. See see
+pango/opentype/FT-license.txt for full details of the FreeType 
+license.</p>
+
+<p>Note that binary distributions of Pango must include a disclaimer 
+that the software is based in part of the work of the FreeType Team, 
+in the distribution documentation; for instance, by including this 
+README file.</p>
+
+<p>Owen Taylor
+<a href="mailto:otaylor@redhat.com">otaylor@redhat.com</a></p>
+
+<p>Behdad Esfahbod
+<a href="mailto:behdad@gnome.org">behdad@gnome.org</a></p>
+
+<p>20 August 2012</p>
+        </section>
+
+        <footer>
+          Pango is maintained by <a href="https://github.com/Distrotech">Distrotech</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
